@@ -80,7 +80,7 @@ form input:focus {
   gap: 15px;
 }
 
-.link .login {
+input[type="submit"]{
   border: none;
   outline: none;
   cursor: pointer;
